@@ -7,8 +7,8 @@
 
 import UIKit
 
-import FlexLayout
-import PinLayout
+// import FlexLayout
+// import PinLayout
 import SnapKit
 import Then
 
@@ -38,6 +38,6 @@ final class MyPageView: UIView {
 
   override func layoutSubviews() {
     super.layoutSubviews()
-    testButton.pin.center().sizeToFit()
+//    testButton.pin.center().sizeToFit()
   }
 }

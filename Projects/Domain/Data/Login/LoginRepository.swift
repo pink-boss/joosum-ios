@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 
 import Domain
-import Networking
+import PBNetworking
 
 final class LoginRepositoryImpl: LoginRepository {
   private let provider: PBNetworking<LoginAPI>

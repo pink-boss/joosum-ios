@@ -9,8 +9,9 @@ import Foundation
 import UIKit
 
 import AuthenticationServices
-import FlexLayout
-import PinLayout
+
+// import FlexLayout
+// import PinLayout
 import SnapKit
 import Then
 
@@ -108,71 +109,74 @@ class LoginView: UIView {
   private func defineLayout() {
     addSubview(flexContainer)
 
-    flexContainer.flex
-      .paddingHorizontal(20.0)
-      .justifyContent(.spaceBetween)
-      .grow(1.0)
-      .define { flex in
-
-        // Top
-        flex.addItem()
-          .marginTop(200.0)
-          .alignItems(.center)
-          .define { flex in
-            flex.addItem(logo)
-              .size(Metric.logo)
-
-            flex.addItem(subTitleLabel)
-              .shrink(1.0)
-              .marginTop(12.0)
-          }
-
-        // Bottom
-        flex.addItem()
-          .width(100%)
-          .define { flex in
-            flex.addItem(appleButton)
-              .marginBottom(12.0)
-              .height(40.0)
-              .justifyContent(.center)
-              .alignItems(.center)
-              .direction(.row)
-              .define { flex in
-                flex.addItem(appleIcon)
-                  .size(Metric.appleLogo)
-
-                flex.addItem(appleLabel)
-                  .marginStart(8.0)
-              }
-
-            flex.addItem(googleButton)
-              .marginBottom(60.0)
-              .height(40.0)
-              .justifyContent(.center)
-              .alignItems(.center)
-              .direction(.row)
-              .define { flex in
-                flex.addItem(googleIcon)
-                  .size(Metric.googleLogo)
-
-                flex.addItem(googleLabel)
-                  .marginStart(8.0)
-              }
-
-            flex.addItem(termsLabel)
-              .alignSelf(.center)
-              .marginBottom(60.0)
-          }
-      }
+//    flexContainer.flex
+//      .paddingHorizontal(20.0)
+//      .justifyContent(.spaceBetween)
+//      .grow(1.0)
+//      .define { flex in
+//
+//        // Top
+//        flex.addItem()
+//          .marginTop(200.0)
+//          .alignItems(.center)
+//          .define { flex in
+//            flex.addItem(logo)
+//              .size(Metric.logo)
+//
+//            flex.addItem(subTitleLabel)
+//              .shrink(1.0)
+//              .marginTop(12.0)
+//          }
+//
+//        // Bottom
+//        flex.addItem()
+//          .width(100%)
+//          .define { flex in
+//            flex.addItem(appleButton)
+//              .marginBottom(12.0)
+//              .height(40.0)
+//              .justifyContent(.center)
+//              .alignItems(.center)
+//              .direction(.row)
+//              .define { flex in
+//                flex.addItem(appleIcon)
+//                  .size(Metric.appleLogo)
+//
+//                flex.addItem(appleLabel)
+//                  .marginStart(8.0)
+//              }
+//
+//            flex.addItem(googleButton)
+//              .marginBottom(60.0)
+//              .height(40.0)
+//              .justifyContent(.center)
+//              .alignItems(.center)
+//              .direction(.row)
+//              .define { flex in
+//                flex.addItem(googleIcon)
+//                  .size(Metric.googleLogo)
+//
+//                flex.addItem(googleLabel)
+//                  .marginStart(8.0)
+//              }
+//
+//            flex.addItem(termsLabel)
+//              .alignSelf(.center)
+//              .marginBottom(60.0)
+//          }
+//      }
   }
 
   override func layoutSubviews() {
     super.layoutSubviews()
 
-    flexContainer.pin.all()
-    flexContainer.flex.layout()
-
-    // TODO: 가입,로그인 마무리되면 제거 예정
-    testButton.pin.center().sizeToFit()
+    testButton.snp.makeConstraints { make in
+      make.center.equalToSuperview()
+    }
+//    flexContainer.pin.all()
+//    flexContainer.flex.layout()
+//
+//    // TODO: 가입,로그인 마무리되면 제거 예정
+//    testButton.pin.center().sizeToFit()
   }
 }

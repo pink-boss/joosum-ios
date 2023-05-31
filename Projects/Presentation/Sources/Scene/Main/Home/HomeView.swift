@@ -7,18 +7,24 @@
 
 import UIKit
 
-import FlexLayout
-import PinLayout
+// import FlexLayout
+// import PinLayout
 import SnapKit
 import Then
 
 final class HomeView: UIView {
+  // TODO: 테스트 버튼 (제거 예정)
+  let testButton = UIButton().then {
+    $0.setTitle("링크북 만들기", for: .normal)
+  }
+
   // MARK: Initializing
 
   override init(frame: CGRect) {
     super.init(frame: frame)
 
-    backgroundColor = .gray3
+    backgroundColor = .systemBackground
+    addSubview(testButton)
   }
 
   @available(*, unavailable)
@@ -30,5 +36,9 @@ final class HomeView: UIView {
 
   override func layoutSubviews() {
     super.layoutSubviews()
+
+    testButton.snp.makeConstraints { make in
+      make.center.equalToSuperview()
+    }
   }
 }

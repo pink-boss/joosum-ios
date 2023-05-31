@@ -11,7 +11,6 @@ project 'Projects/Presentation.xcodeproj'
 project 'Projects/DesignSystem.xcodeproj'
 # Core
 project 'Projects/Core/PBNetworking/PBNetworking.xcodeproj'
-project 'Projects/Core/LoginManager/LoginManager.xcodeproj'
 
 target 'Joosum' do
   project 'Projects/Joosum/Joosum.xcodeproj'
