@@ -10,7 +10,7 @@ project 'Projects/Domain.xcodeproj'
 project 'Projects/Presentation.xcodeproj'
 project 'Projects/DesignSystem.xcodeproj'
 # Core
-project 'Projects/Core/Networking/Networking.xcodeproj'
+project 'Projects/Core/PBNetworking/PBNetworking.xcodeproj'
 project 'Projects/Core/LoginManager/LoginManager.xcodeproj'
 
 target 'Joosum' do
@@ -44,6 +44,6 @@ end
 
 # Core
 
-target 'Networking' do
-  project 'Projects/Core/Networking/Networking.xcodeproj'
+target 'PBNetworking' do
+  project 'Projects/Core/PBNetworking/PBNetworking.xcodeproj'
 end

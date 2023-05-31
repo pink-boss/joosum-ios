@@ -45,7 +45,7 @@ let project = Project(
       scripts: [.SwiftFormatString],
       dependencies: [
         .target(name: "Domain"),
-        .core(impl: .Networking),
+        .core(impl: .PBNetworking),
         .external(dependency: .RxSwift),
         .external(dependency: .RxCocoa),
         .external(dependency: .RxRelay),
@@ -78,7 +78,7 @@ let project = Project(
         .target(name: "Domain"),
         .target(name: "Data"),
         .target(name: "DomainTesting"),
-        .core(impl: .Networking),
+        .core(impl: .PBNetworking),
         .external(dependency: .RxSwift),
         .external(dependency: .RxCocoa),
         .external(dependency: .RxRelay),
