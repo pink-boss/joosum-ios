@@ -12,9 +12,13 @@ project 'Projects/DesignSystem.xcodeproj'
 # Core
 project 'Projects/Core/PBNetworking/PBNetworking.xcodeproj'
 
+def flex_layout
+  pod 'FlexLayout', :git => 'git@github.com:pink-boss/FlexLayout.git'
+end
+
 target 'Joosum' do
   project 'Projects/Joosum/Joosum.xcodeproj'
-  pod 'FlexLayout', '~> 1.0'
+  flex_layout
   pod 'PinLayout', '~> 1.0'
   pod 'GoogleSignIn'
 end
@@ -25,7 +29,7 @@ end
 
 target 'Presentation' do
   project 'Projects/Presentation/Presentation.xcodeproj'
-  pod 'FlexLayout', '~> 1.0'
+  flex_layout
   pod 'PinLayout', '~> 1.0'
   pod 'GoogleSignIn'
 end
@@ -37,7 +41,7 @@ end
 
 target 'DesignSystem' do
   project 'Projects/DesignSystem/DesignSystem.xcodeproj'
-  pod 'FlexLayout', '~> 1.0'
+  flex_layout
   pod 'PinLayout', '~> 1.0'
 end
 

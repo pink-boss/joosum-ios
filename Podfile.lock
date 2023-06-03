@@ -17,18 +17,26 @@ PODS:
   - PinLayout (1.10.3)
 
 DEPENDENCIES:
-  - FlexLayout (~> 1.0)
+  - "FlexLayout (from `git@github.com:pink-boss/FlexLayout.git`)"
   - GoogleSignIn
   - PinLayout (~> 1.0)
 
 SPEC REPOS:
   trunk:
     - AppAuth
-    - FlexLayout
     - GoogleSignIn
     - GTMAppAuth
     - GTMSessionFetcher
     - PinLayout
+
+EXTERNAL SOURCES:
+  FlexLayout:
+    :git: "git@github.com:pink-boss/FlexLayout.git"
+
+CHECKOUT OPTIONS:
+  FlexLayout:
+    :commit: e078c62e20094dfe25526831ac183704f7343bea
+    :git: "git@github.com:pink-boss/FlexLayout.git"
 
 SPEC CHECKSUMS:
   AppAuth: 3bb1d1cd9340bd09f5ed189fb00b1cc28e1e8570
@@ -38,6 +46,6 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: e8647203b65cee28c5f73d0f473d096653945e72
   PinLayout: 0090ccbf29ae69af6ae5a15eaeaf27ed7b2c4d83
 
-PODFILE CHECKSUM: 0035345fa8a9ae9f2b3aa10358ec2b5dbe5ae0b1
+PODFILE CHECKSUM: 1554dcaae0db32ffdad4e3e9ae8432694cc552fc
 
 COCOAPODS: 1.12.1
