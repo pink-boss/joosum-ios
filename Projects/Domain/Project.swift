@@ -46,6 +46,7 @@ let project = Project(
       dependencies: [
         .target(name: "Domain"),
         .core(impl: .PBNetworking),
+        .core(interface: .PBAuth),
         .external(dependency: .RxSwift),
         .external(dependency: .RxCocoa),
         .external(dependency: .RxRelay),
@@ -79,6 +80,7 @@ let project = Project(
         .target(name: "Data"),
         .target(name: "DomainTesting"),
         .core(impl: .PBNetworking),
+        .core(testing: .PBAuth),
         .external(dependency: .RxSwift),
         .external(dependency: .RxCocoa),
         .external(dependency: .RxRelay),
