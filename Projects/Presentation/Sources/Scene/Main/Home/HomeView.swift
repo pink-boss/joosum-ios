@@ -7,8 +7,8 @@
 
 import UIKit
 
-// import FlexLayout
-// import PinLayout
+import FlexLayout
+import PinLayout
 import SnapKit
 import Then
 
@@ -16,6 +16,7 @@ final class HomeView: UIView {
   // TODO: 테스트 버튼 (제거 예정)
   let testButton = UIButton().then {
     $0.setTitle("링크북 만들기", for: .normal)
+    $0.setTitleColor(.label, for: .normal)
   }
 
   // MARK: Initializing
