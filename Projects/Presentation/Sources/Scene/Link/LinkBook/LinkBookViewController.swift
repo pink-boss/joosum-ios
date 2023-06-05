@@ -1,10 +1,3 @@
-//
-//  LinkBookViewController.swift
-//  PresentationInterface
-//
-//  Created by Hohyeon Moon on 2023/06/01.
-//
-
 import UIKit
 
 import RxSwift
