@@ -6,17 +6,37 @@
 import Foundation
 import RxSwift
 
-// MARK: - LogoutUseCaseMock
+// MARK: - AppleLoginUseCaseMock
 
-public final class LogoutUseCaseMock: LogoutUseCase {
+public final class AppleLoginUseCaseMock: AppleLoginUseCase {
   public init() {}
 
   public private(set) var excuteCallCount = 0
-  public var excuteHandler: (() -> (Single<Bool>))?
-  public func excute() -> Single<Bool> {
+  public var excuteArgValues = [String]()
+  public var excuteHandler: ((String) -> (Single<Bool>))?
+  public func excute(identity: String) -> Single<Bool> {
     excuteCallCount += 1
+    excuteArgValues.append(identity)
     if let excuteHandler {
-      return excuteHandler()
+      return excuteHandler(identity)
+    }
+    fatalError("excuteHandler returns can't have a default value thus its handler must be set")
+  }
+}
+
+// MARK: - GoogleLoginUseCaseMock
+
+public final class GoogleLoginUseCaseMock: GoogleLoginUseCase {
+  public init() {}
+
+  public private(set) var excuteCallCount = 0
+  public var excuteArgValues = [String]()
+  public var excuteHandler: ((String) -> (Single<Bool>))?
+  public func excute(access: String) -> Single<Bool> {
+    excuteCallCount += 1
+    excuteArgValues.append(access)
+    if let excuteHandler {
+      return excuteHandler(access)
     }
     fatalError("excuteHandler returns can't have a default value thus its handler must be set")
   }
@@ -60,39 +80,49 @@ public final class LoginRepositoryMock: LoginRepository {
     }
     fatalError("logoutHandler returns can't have a default value thus its handler must be set")
   }
+
+  public private(set) var requestSignUpCallCount = 0
+  public var requestSignUpArgValues = [(String, Int, String, String, String)]()
+  public var requestSignUpHandler: ((String, Int, String, String, String) -> (Single<Bool>))?
+  public func requestSignUp(accessToken: String, age: Int, gender: String, nickname: String, social: String) -> Single<Bool> {
+    requestSignUpCallCount += 1
+    requestSignUpArgValues.append((accessToken, age, gender, nickname, social))
+    if let requestSignUpHandler {
+      return requestSignUpHandler(accessToken, age, gender, nickname, social)
+    }
+    fatalError("requestSignUpHandler returns can't have a default value thus its handler must be set")
+  }
 }
 
-// MARK: - AppleLoginUseCaseMock
+// MARK: - LogoutUseCaseMock
 
-public final class AppleLoginUseCaseMock: AppleLoginUseCase {
+public final class LogoutUseCaseMock: LogoutUseCase {
   public init() {}
 
   public private(set) var excuteCallCount = 0
-  public var excuteArgValues = [String]()
-  public var excuteHandler: ((String) -> (Single<Bool>))?
-  public func excute(identity: String) -> Single<Bool> {
+  public var excuteHandler: (() -> (Single<Bool>))?
+  public func excute() -> Single<Bool> {
     excuteCallCount += 1
-    excuteArgValues.append(identity)
     if let excuteHandler {
-      return excuteHandler(identity)
+      return excuteHandler()
     }
     fatalError("excuteHandler returns can't have a default value thus its handler must be set")
   }
 }
 
-// MARK: - GoogleLoginUseCaseMock
+// MARK: - SignUpUseCaseMock
 
-public final class GoogleLoginUseCaseMock: GoogleLoginUseCase {
+public final class SignUpUseCaseMock: SignUpUseCase {
   public init() {}
 
   public private(set) var excuteCallCount = 0
-  public var excuteArgValues = [String]()
-  public var excuteHandler: ((String) -> (Single<Bool>))?
-  public func excute(access: String) -> Single<Bool> {
+  public var excuteArgValues = [(String, Int, String, String, String)]()
+  public var excuteHandler: ((String, Int, String, String, String) -> (Single<Bool>))?
+  public func excute(accessToken: String, age: Int, gender: String, nickname: String, social: String) -> Single<Bool> {
     excuteCallCount += 1
-    excuteArgValues.append(access)
+    excuteArgValues.append((accessToken, age, gender, nickname, social))
     if let excuteHandler {
-      return excuteHandler(access)
+      return excuteHandler(accessToken, age, gender, nickname, social)
     }
     fatalError("excuteHandler returns can't have a default value thus its handler must be set")
   }

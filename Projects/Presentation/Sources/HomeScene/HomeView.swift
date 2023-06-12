@@ -2,8 +2,12 @@ import UIKit
 
 import FlexLayout
 import PinLayout
+import RxCocoa
+import RxSwift
 import SnapKit
 import Then
+
+import DesignSystem
 
 final class HomeView: UIView {
   // TODO: 테스트 버튼 (제거 예정)
@@ -17,7 +21,7 @@ final class HomeView: UIView {
   override init(frame: CGRect) {
     super.init(frame: frame)
 
-    backgroundColor = .systemBackground
+    backgroundColor = .gray300
     addSubview(testButton)
   }
 

@@ -80,7 +80,7 @@ class LoginView: UIView {
   override init(frame: CGRect) {
     super.init(frame: frame)
 
-    backgroundColor = .primary
+    backgroundColor = .primary500
 
     defineLayout()
   }
