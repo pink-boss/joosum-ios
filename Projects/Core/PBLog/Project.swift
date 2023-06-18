@@ -3,6 +3,13 @@ import ProjectDescriptionHelpers
 
 let project = Project(
   name: CoreModule.PBLog.rawValue,
+  options: .options(
+    textSettings: .textSettings(
+      indentWidth: 2,
+      tabWidth: 2,
+      wrapsLines: true
+    )
+  ),
   targets: [
     Target(
       name: "\(CoreModule.PBLog.rawValue)Interface",
@@ -30,7 +37,8 @@ let project = Project(
         .target(name: "\(CoreModule.PBLog.rawValue)Interface"),
         // External
         .external(dependency: .RxMoya),
-        .external(dependency: .Swinject)
+        .external(dependency: .Swinject),
+        .external(dependency: .SwiftyJSON)
       ]
     ),
     Target(

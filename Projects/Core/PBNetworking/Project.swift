@@ -3,6 +3,13 @@ import ProjectDescriptionHelpers
 
 let project = Project(
   name: CoreModule.PBNetworking.rawValue,
+  options: .options(
+    textSettings: .textSettings(
+      indentWidth: 2,
+      tabWidth: 2,
+      wrapsLines: true
+    )
+  ),
   targets: [
     Target(
       name: CoreModule.PBNetworking.rawValue,
@@ -16,7 +23,10 @@ let project = Project(
       dependencies: [
         // External
         .external(dependency: .RxMoya),
-        .external(dependency: .Swinject)
+        .external(dependency: .Swinject),
+        .external(dependency: .SwiftyJSON),
+        // Core
+        .core(impl: .PBLog)
       ]
     ),
     Target(
