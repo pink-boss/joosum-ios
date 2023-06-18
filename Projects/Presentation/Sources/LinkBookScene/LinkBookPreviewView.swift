@@ -1,6 +1,8 @@
 import UIKit
 
 class LinkBookPreviewView: UIView {
+  // MARK: UI
+
   private lazy var bookCover = {
     let view = UIView()
     view.layer.cornerRadius = 6
@@ -26,6 +28,8 @@ class LinkBookPreviewView: UIView {
     label.font = .bodyBold
     return label
   }()
+
+  // MARK: Life Cycle
 
   override init(frame: CGRect) {
     super.init(frame: frame)

@@ -3,8 +3,6 @@ import UIKit
 import RxSwift
 
 final class LinkBookViewController: UIViewController {
-  private let disposeBag = DisposeBag()
-
   // MARK: UI
 
   private lazy var closeButton = {
@@ -20,6 +18,7 @@ final class LinkBookViewController: UIViewController {
   // MARK: Properties
 
   private let viewModel: LinkBookViewModel
+  private let disposeBag = DisposeBag()
 
   // MARK: Initializing
 
@@ -37,6 +36,7 @@ final class LinkBookViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+
     view.backgroundColor = .staticWhite
 
     setNavigation()
@@ -44,7 +44,6 @@ final class LinkBookViewController: UIViewController {
     setTabView()
 
     bind()
-    bind(with: viewModel)
   }
 
   private func setNavigation() {
@@ -77,9 +76,11 @@ final class LinkBookViewController: UIViewController {
 
   // MARK: Binding
 
-  func bind(with viewModel: LinkBookViewModel) {}
-
   private func bind() {
+    bindButtons()
+  }
+
+  private func bindButtons() {
     closeButton.rx.tap
       .subscribe(with: self) { _, _ in
         self.dismiss(animated: true)

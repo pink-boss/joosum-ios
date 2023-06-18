@@ -14,11 +14,11 @@ public final class PresentationAssembly: Assembly {
     let registerFunctions: [(Container) -> Void] = [
       registerLoginBuilder,
       registerMainTabBuilder,
+      registerLinkBookBuilder,
       registerHomeBuilder,
       registerFolderBuilder,
       registerMyPageBuilder,
-      registerSignUpBuilder,
-      registerLinkBookBuilder
+      registerSignUpBuilder
     ]
 
     registerFunctions.forEach { function in
@@ -48,9 +48,9 @@ public final class PresentationAssembly: Assembly {
   }
 
   private func registerHomeBuilder(container: Container) {
-    container.register(HomeBuildable.self) { _ in
+    container.register(HomeBuildable.self) { resolver in
       HomeBuilder(dependency: .init(
-        linkBookBuilder: LinkBookBuilder(dependency: .init())
+        linkBookBuilder: resolver.resolve()
       ))
     }
   }
@@ -81,7 +81,7 @@ public final class PresentationAssembly: Assembly {
   }
 
   private func registerLinkBookBuilder(container: Container) {
-    container.register(LinkBookBuilder.self) { _ in
+    container.register(LinkBookBuildable.self) { _ in
       LinkBookBuilder(dependency: .init())
     }
   }
