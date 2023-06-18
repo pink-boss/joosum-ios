@@ -17,7 +17,8 @@ public final class PresentationAssembly: Assembly {
       registerHomeBuilder,
       registerFolderBuilder,
       registerMyPageBuilder,
-      registerSignUpBuilder
+      registerSignUpBuilder,
+      registerLinkBookBuilder
     ]
 
     registerFunctions.forEach { function in
@@ -48,7 +49,9 @@ public final class PresentationAssembly: Assembly {
 
   private func registerHomeBuilder(container: Container) {
     container.register(HomeBuildable.self) { _ in
-      HomeBuilder(dependency: .init())
+      HomeBuilder(dependency: .init(
+        linkBookBuilder: LinkBookBuilder(dependency: .init())
+      ))
     }
   }
 
@@ -74,6 +77,12 @@ public final class PresentationAssembly: Assembly {
         loginRepository: resolver.resolve(),
         mainTabBuilder: resolver.resolve()
       ))
+    }
+  }
+
+  private func registerLinkBookBuilder(container: Container) {
+    container.register(LinkBookBuilder.self) { _ in
+      LinkBookBuilder(dependency: .init())
     }
   }
 }
