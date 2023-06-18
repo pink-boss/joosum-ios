@@ -85,6 +85,8 @@ public final class PresentationAssembly: Assembly {
   private func registerTermsOfUseBuilder(contaier: Container) {
     contaier.register(TermsOfUseBuildable.self) { _ in
       TermsOfUseBuilder(dependency: .init())
+    }
+  }
 
   private func registerLinkBookBuilder(container: Container) {
     container.register(LinkBookBuildable.self) { _ in
